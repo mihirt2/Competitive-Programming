@@ -13,13 +13,16 @@
 using namespace std;
 using ll = long long;
 ll t,k,a,b,l,r,c,q,m,n,d,x,y,z;
-ll arr[300001];
-ll pre[300001];
+ll arr[1000001];
+ll pre[1000001];
 
 
 int main() {
 t=1;
   for(int qwe = 0; qwe < t; qwe++) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
     cin >> n >> k;
     for(int i = 0; i < n; i++) {
     cin >> arr[i];
@@ -38,12 +41,12 @@ t=1;
     cin >> l >> r;
     l--;
     r--;
-    for(int j = prevl+1; j <= l; j++) {
-    s.insert(arr[j]);
-    }
-    for(int j = prevr+1; j <= r; j++) {
+    for(int j = prevl; j < l; j++) {
     auto it = s.find(arr[j]);
     s.erase(it);
+    }
+    for(int j = prevr+1; j <= r; j++) {
+    s.insert(arr[j]);
     }
     cout << *s.rbegin() << endl;
     prevl = l;
